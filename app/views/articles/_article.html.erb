@@ -8,14 +8,14 @@
         <%= simple_format(article.text) %>
       </div>
       <div class="card-action">
-        <span class="btn">
-          <%= link_to 'SHOW', "/articles/#{article.id}", method: :get, :style=>"color:white;" %>
+        <span class="btn light-green lighten-1">
+          <%= link_to 'SHOW', article_path(article.id), class: "white-text" %>
         </span>
-        <span class="btn">
-          <%= link_to 'EDIT', edit_article_path(article.id), method: :get, :style=>"color:white;" %>
+        <span class="btn light-green lighten-1">
+          <%= link_to 'EDIT', edit_article_path(article.id), class: "white-text" %>
         </span>
-        <span class="btn">
-          <%= link_to 'DESTROY', "/articles/#{article.id}", method: :delete, :style=>"color:white;" %>
+        <span class="btn light-green lighten-1">
+          <%= link_to 'DESTROY', "/articles/#{article.id}", method: :delete, class: "white-text" %>
         </span>
       </div>
     </div>

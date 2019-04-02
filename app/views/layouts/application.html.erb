@@ -25,37 +25,34 @@
   <body>
     <nav class="light-green lighten-1">
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo">生きているコントたち</a>
+        <%= link_to '生きているコントたち', root_path, class: "brand-logo" %>
       </div>
     </nav>
     <div class="row">
-      <div class="col s3" style="height: 100vh;">
+      <div class="col s3 sidebar z-depth-2">
         <div id="devise">
           <% if user_signed_in? %>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li>
-                <%= simple_format(current_user.email, :style=>"height: 64px; line-height: 64px; margin: 0 20px 0 0;") %>
+                <%= simple_format(current_user.email, class: "user_name") %>
               </li>
               <li>
-                <%= link_to 'SignIn', "/users/sign_in", method: :get %>
+                <%= link_to 'Sign0ut', destroy_user_session_path, method: :delete, class: "btn side-btn light-green lighten-1" %>
               </li>
               <li>
-                <%= link_to 'Sign0ut', "/users/sign_out", method: :delete %>
-              </li>
-              <li>
-                <%= link_to 'New', "/articles/new", method: :get %>
+                <%= link_to 'New', new_article_path, class: "btn side-btn light-green lighten-1" %>
               </li>
             </ul>
           <% else %>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li>
-                <%= link_to 'SignIn', "/users/sign_in", method: :get %>
+                <%= link_to 'SignIn', new_user_session_path, class: "btn side-btn light-green lighten-1" %>
               </li>
               <li>
-                <%= link_to 'Sign0ut', "/users/sign_out", method: :delete %>
+                <%= link_to 'Sign0ut', destroy_user_session_path, method: :delete, class: "btn side-btn light-green lighten-1" %>
               </li>
               <li>
-                <%= link_to 'New', "/articles/new", method: :get %>
+                <%= link_to 'New', new_article_path, class: "btn side-btn light-green lighten-1" %>
               </li>
             </ul>
           <% end %>
@@ -71,7 +68,8 @@
         <%= yield %>
       </div>
     </div>
-    <footer>
+    <footer class="light-green lighten-1">
+      <p id="copyright">Copyright © 2013-2014 ○○○○ All Rights Reserved.</p>
     </footer>
   </body>
 </html>
